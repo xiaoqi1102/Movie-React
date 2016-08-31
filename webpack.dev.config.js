@@ -26,23 +26,23 @@ module.exports = {
         noParse: /es6-promise\.js$/,
         loaders:[
             {
-                test:'/\.js$/',
-                exclude:/node_modules/,
-                loaders:['react-hot','babel?presets[]=react,presets[]=ess2015,presets[]=stage-0'],
-                include:path.join(__dirname,'app')
-            }
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'],
+                include: path.join(__dirname, 'app')
+            },
         ]
     },
     plugins:[
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin({
-            'process.env':{
-                NODE_ENV:JSON.stringify('development'),
-                BROWSER:JSON.stringify(true)
+            'process.env': {
+                NODE_ENV: JSON.stringify('development'),
+                BROWSER: JSON.stringify(true)
             }
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NodeEnvironmentPlugin()
+        new webpack.NoErrorsPlugin()
     ]
 
 };
