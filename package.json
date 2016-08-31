@@ -4,7 +4,8 @@
   "description": "movie web website",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "serve": " supervisor -i app --exec babel-node ./server/dev/server.js"
   },
   "keywords": [
     "react",
@@ -33,6 +34,8 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.0"
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "^1.15.0",
+    "webpack-hot-middleware": "^2.12.2"
   }
 }
