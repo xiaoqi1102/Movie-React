@@ -31,6 +31,12 @@ module.exports = {
                 loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'],
                 include: path.join(__dirname, 'app')
             },
+            {test: /\.css$/, loader: "style?sourceMap!css"},
+            {test: /\.less$/, loader: "style?sourceMap!css!less"},
+            {
+                test: /\.(ttf|eot|svg|woff(2)?)(\?-[a-z0-9=&.]+)?$/,
+                loader: 'file?name=fonts/[name].[ext]'
+            }
         ]
     },
     plugins:[
