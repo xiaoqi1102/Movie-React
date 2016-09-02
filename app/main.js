@@ -9,10 +9,9 @@ import {Router, browserHistory} from 'react-router';
 import Routers from './router'
 import {Provider} from 'react-redux'
 import {syncHistoryWithStore} from 'react-router-redux'
-//import configureStore from './store/configureSotre';
-//import configureStore from './store/configureSotre.dev'
-//const store =configureStore();
-import {store} from './store/store'
+import configureStore from './store/configureSotre';
+const store =configureStore();
+
 
 const rootDocumentElement = document.getElementById('content');
 const history = syncHistoryWithStore(browserHistory, store);
