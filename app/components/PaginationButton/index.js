@@ -16,7 +16,7 @@ class PaginationButton extends React.Component{
         }
 
         if (this.props.onClick) {
-            console.log(this.props.eventKey);
+            //console.log(this.props.eventKey);
             let selectedEvent = createSelectedEvent(this.props.eventKey);
             this.props.onClick(event, selectedEvent);
         }

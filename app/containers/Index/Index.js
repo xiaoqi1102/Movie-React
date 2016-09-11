@@ -13,7 +13,7 @@ class Index extends React.Component{
     }
     handleSelect(event,active){
         let {eventKey}=active;
-        console.log(eventKey);
+        //console.log(eventKey);
         this.setState({
             activePage:eventKey
         })
