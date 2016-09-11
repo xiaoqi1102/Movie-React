@@ -2,14 +2,12 @@
  * Created by xiaoqi on 16/9/11.
  */
 import React from 'react';
-import elementType from 'react-prop-types/lib/elementType';
 import createSelectedEvent from '../../utils/createSelectedEvent';
+
 class PaginationButton extends React.Component{
-    getDefaultProps() {
-        return {
-            active: false,
-            disabled: false
-        };
+    constructor(props){
+        super(props);
+        this.handleClick=this.handleClick.bind(this);
     }
     handleClick(event) {
         if (this.props.disabled) {
@@ -20,42 +18,14 @@ class PaginationButton extends React.Component{
             let selectedEvent = createSelectedEvent(this.props.eventKey);
             this.props.onSelect(event, selectedEvent);
         }
-    }
+    };
     render(){
-        let classes = {
-            active: this.props.active,
-            disabled: this.props.disabled,
-            //...this.getBsClassSet()
-        };
-
-        let {
-            className,
-            ...anchorProps
-        } = this.props;
-
-        let ButtonComponentClass = this.props.buttonComponentClass;
-
-        return (
-            <li className={classNames(className, classes)}>
-                <ButtonComponentClass
-                    {...anchorProps}
-                    onClick={this.handleClick} />
-            </li>
-        );
+        let {...others}=this.props;
+        return(
+            <div  onClick={this.handleClick} style={{display:'inline-block'}}>
+                {this.props.children}
+            </div>
+        )
     }
-};
-PaginationButton.prototypes={
-    className: React.PropTypes.string,
-    eventKey: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number
-    ]),
-    onSelect: React.PropTypes.func,
-    disabled: React.PropTypes.bool,
-    active: React.PropTypes.bool,
-    /**
-     * You can use a custom element for this component
-     */
-    buttonComponentClass: elementType
-};
+}
 export  default  PaginationButton;

@@ -17,7 +17,7 @@ var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 var publicPath = '/build/';
 
 module.exports = {
-    devtool: 'cheap-source-map', // 生成 map 文件,便于调试
+    devtool: 'source-map', // 生成 map 文件,便于调试
 
     entry: {
         main: [hotMiddlewareScript, './app/main']
@@ -32,7 +32,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, './server/dev')
     },
     resolve: {
-        extensions: ['', '.js', '.css', '.less', '.json'],
+        extensions: ['', '.js', '.jsx','.css', '.less', '.json'],
         alias: {
             //'react-bootstrap': 'react-bootstrap/dist/react-bootstrap.min.js',
             'react-router': 'react-router/umd/ReactRouter.min.js'
