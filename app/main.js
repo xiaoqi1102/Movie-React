@@ -23,6 +23,7 @@ ReactDom.render(
         </Router>
     </Provider>, rootDocumentElement);
 
+/*
 if (module.hot) {
     module.hot.accept();
-}
+}*/
