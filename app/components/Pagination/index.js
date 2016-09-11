@@ -72,7 +72,7 @@ class Pagination extends React.Component{
                 eventKey={1}
                 disabled={this.props.activePage === 1 }
                 onClick={this.props.onSelect}>
-                {this.props.first === true ? <RaiseButton style={style} label={'\u00ab'}/> : this.props.first}
+                {this.props.first === true ? <RaiseButton   disabled={this.props.activePage === 1 } style={style} label={'\u00ab'}/> : this.props.first}
             </PaginationButton>
         );
     };
@@ -87,7 +87,7 @@ class Pagination extends React.Component{
                 eventKey={this.props.items}
                 disabled={this.props.activePage >= this.props.items}
                 onClick={this.props.onSelect}>
-                {this.props.last === true ? <RaiseButton style={style} label={'\u00bb'}/> : this.props.last}
+                {this.props.last === true ? <RaiseButton disabled={this.props.activePage >= this.props.items} style={style} label={'\u00bb'}/> : this.props.last}
             </PaginationButton>
         );
     };
@@ -104,7 +104,7 @@ class Pagination extends React.Component{
             disabled={activePage >= items}
             onClick={onSelect}
         >
-            <RaiseButton style={style} label={'\u203a'}/>
+            <RaiseButton  disabled={activePage >= items} style={style} label={'\u203a'}/>
         </PaginationButton>
 
         )
@@ -117,7 +117,7 @@ class Pagination extends React.Component{
             eventKey={activePage-1}
             disabled={activePage===1}
             onClick={onSelect}>
-            <RaiseButton style={style} label={'\u2039'}/>
+            <RaiseButton  disabled={activePage===1} style={style} label={'\u2039'}/>
         </PaginationButton>
         )
     };
