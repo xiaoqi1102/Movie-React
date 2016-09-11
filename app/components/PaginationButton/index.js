@@ -36,6 +36,7 @@ PaginationButton.prototypes={
         React.PropTypes.number
     ]),
     onSelect: React.PropTypes.func,
-    onClick:React.PropTypes.func
+    onClick:React.PropTypes.func,
+    disabled: React.PropTypes.bool,
 };
 export  default  PaginationButton;

@@ -150,5 +150,37 @@ Pagination.prototypes={
     items: React.PropTypes.number,
     maxButtons: React.PropTypes.number,
     onSelect: React.PropTypes.func,
+    /**
+     * When `true`, will display the default node value ('&laquo;').
+     * Otherwise, will display provided node (when specified).
+     */
+    first: React.PropTypes.oneOfType([
+        React.PropTypes.bool,
+        React.PropTypes.node
+    ]),
+    /**
+     * When `true`, will display the default node value ('&raquo;').
+     * Otherwise, will display provided node (when specified).
+     */
+    last: React.PropTypes.oneOfType([
+        React.PropTypes.bool,
+        React.PropTypes.node
+    ]),
+    /**
+     * When `true`, will display the default node value ('&lsaquo;').
+     * Otherwise, will display provided node (when specified).
+     */
+    prev: React.PropTypes.oneOfType([
+        React.PropTypes.bool,
+        React.PropTypes.node
+    ]),
+    /**
+     * When `true`, will display the default node value ('&rsaquo;').
+     * Otherwise, will display provided node (when specified).
+     */
+    next: React.PropTypes.oneOfType([
+        React.PropTypes.bool,
+        React.PropTypes.node
+    ]),
 };
 export  default  Pagination;
