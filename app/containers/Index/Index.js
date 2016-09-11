@@ -11,10 +11,11 @@ class Index extends React.Component{
         };
         this.handleSelect=this.handleSelect.bind(this);
     }
-    handleSelect(activePage){
-        console.log(activePage);
+    handleSelect(event,active){
+        let {eventKey}=active;
+        console.log(eventKey);
         this.setState({
-            activePage
+            activePage:eventKey
         })
     }
     render(){

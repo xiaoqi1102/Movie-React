@@ -10,22 +10,32 @@ class PaginationButton extends React.Component{
         this.handleClick=this.handleClick.bind(this);
     }
     handleClick(event) {
+        //console.log('click');
         if (this.props.disabled) {
             return;
         }
 
-        if (this.props.onSelect) {
+        if (this.props.onClick) {
+            console.log(this.props.eventKey);
             let selectedEvent = createSelectedEvent(this.props.eventKey);
-            this.props.onSelect(event, selectedEvent);
+            this.props.onClick(event, selectedEvent);
         }
     };
     render(){
         let {...others}=this.props;
         return(
-            <div  onClick={this.handleClick} style={{display:'inline-block'}}>
+            <li  onClick={this.handleClick} style={{display:'inline-block'}}>
                 {this.props.children}
-            </div>
+            </li>
         )
     }
-}
+};
+PaginationButton.prototypes={
+    eventKey: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.number
+    ]),
+    onSelect: React.PropTypes.func,
+    onClick:React.PropTypes.func
+};
 export  default  PaginationButton;

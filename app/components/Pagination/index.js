@@ -52,55 +52,84 @@ class Pagination extends React.Component{
             pageButtons.push(
                 <PaginationButton
                     key={pageNumber}
+                    eventKey={pageNumber}
                     onClick={onSelect}
                 >
-                    <RaiseButton  style={style} label={pageNumber}/>
+                    <RaiseButton  primary={pageNumber===activePage} style={style} label={pageNumber}/>
                 </PaginationButton>
             )
         }
         return pageButtons;
     };
     renderFirst(){
-        return(
-            <PaginationButton>
+        if (!this.props.first) {
+            return null;
+        }
 
+        return (
+            <PaginationButton
+                key="first"
+                eventKey={1}
+                disabled={this.props.activePage === 1 }
+                onClick={this.props.onSelect}>
+                {this.props.first === true ? <RaiseButton style={style} label={'\u00ab'}/> : this.props.first}
             </PaginationButton>
-        )
+        );
     };
-    renderLast(){
-        return(
-            <PaginationButton>
+    renderLast() {
+        if (!this.props.last) {
+            return null;
+        }
 
+        return (
+            <PaginationButton
+                key="last"
+                eventKey={this.props.items}
+                disabled={this.props.activePage >= this.props.items}
+                onClick={this.props.onSelect}>
+                {this.props.last === true ? <RaiseButton style={style} label={'\u00bb'}/> : this.props.last}
             </PaginationButton>
-        )
+        );
     };
     renderNext(){
+
+        let {eventKey,activePage,onSelect,items,next}=this.props;
+        if (!next) {
+            return null;
+        }
         return(
         <PaginationButton
-        key="next"
-        onSelect={this.props.onSelect}
+            key="next"
+            eventKey={activePage + 1}
+            disabled={activePage >= items}
+            onClick={onSelect}
         >
-            <RaiseButton style={style} icon={<KeyBoardArrowRight/>}/>
+            <RaiseButton style={style} label={'\u203a'}/>
         </PaginationButton>
 
         )
     };
     renderPrev(){
+        let {eventKey,activePage,onSelect,items}=this.props;
         return(
         <PaginationButton
             key="prev"
-            onClick={this.props.onSelect}>
-            <RaiseButton style={style} icon={<KeyBoardArrowLeft/>}/>
+            eventKey={activePage-1}
+            disabled={activePage===1}
+            onClick={onSelect}>
+            <RaiseButton style={style} label={'\u2039'}/>
         </PaginationButton>
         )
     };
     render(){
         return(
-            <div >
+            <ul >
+                {this.renderFirst()}
                 {this.renderPrev()}
                 {this.renderPageButtons()}
                 {this.renderNext()}
-            </div>
+                {this.renderLast()}
+            </ul>
         )
     }
 }
