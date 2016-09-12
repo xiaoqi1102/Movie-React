@@ -5,12 +5,8 @@ import React ,{PropTypes}from 'react';
 import classNames from 'classnames';
 import PaginationButton from '../PaginationButton/index.js';
 import elementType from 'react-prop-types/lib/elementType';
-import SafeAnchor from '../SafeAnchor';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
 import RaiseButton from 'material-ui/RaisedButton'
-import KeyBoardArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left'
-import KeyBoardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
+
 const style = {
     margin: 5,
     minWidth:40
@@ -110,7 +106,10 @@ class Pagination extends React.Component{
         )
     };
     renderPrev(){
-        let {eventKey,activePage,onSelect,items}=this.props;
+        let {prev,eventKey,activePage,onSelect,items}=this.props;
+        if(!prev){
+            return null
+        }
         return(
         <PaginationButton
             key="prev"
